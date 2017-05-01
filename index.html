@@ -120,6 +120,28 @@ func main() {
 ./count-ones 1010101011111111111</code></pre>
 	  </section>
 
+	  <section>
+	    <h2>Poco a poco</h2>
+	    <pre><code>package main // running this </code>
+	      <code class='fragment'>import (
+	"os" // Para argumentos
+	"fmt" // formatear cosas
+	"time" // Medir duración
+)</code>
+
+	      <code class='fragment'>func main() { // Función ejecutada por omisión
+	start := time.Now() // := define una variable 
+	unos := 0
+	for _, element := range os.Args[1] { // _ para descartar
+		if ( element == '1' ) { // range crea una serie
+			unos++
+		} 
+	}
+        // escribimos en salida estándar el resultado y duración
+	fmt.Println("Unos, ", unos,", ", time.Since(start).Seconds())
+}</code></pre>
+
+	  </section>
 	</section>
 
 	<!-- Credits -->
