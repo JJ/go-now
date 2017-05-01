@@ -85,6 +85,43 @@ title='flecha tachada'><h1>Adiós a los punteros</h1>
 	  </section>
 	</section>
 
+	<section>
+	  <section>
+	    <h2>Cuenta los unos</h2>
+	    <pre><code>package main
+import (
+	"os"
+	"fmt"
+	"time"
+)
+
+func main() {
+	start := time.Now()
+	unos := 0
+	for _, element := range os.Args[1] {
+		if ( element == '1' ) {
+			unos++
+		} 
+	}	
+	fmt.Println("Unos, ", unos,", ", time.Since(start).Seconds())
+}</code></pre>
+
+	  </section>
+
+	  <section>
+	    <h1>Tú eliges</h1> 
+
+	    <pre><code>go run count-ones.go 1010101011111111111</code></pre>
+
+	    <pre class='fragment'><code>go build count-ones.go 
+./count-ones 1010101011111111111</code></pre>
+
+	    <pre class='fragment'><code>gccgo count-ones.go 
+./count-ones 1010101011111111111</code></pre>
+	  </section>
+
+	</section>
+
 	<!-- Credits -->
 	<section><h2>Credits</h2>
 
@@ -122,6 +159,8 @@ title='flecha tachada'><h1>Adiós a los punteros</h1>
 		   backgroundTransition: 'zoom',
 		   transition: 'concave',
 		   width: '95%',
+		   slideNumber: true,
+		   history: true,
 		   dependencies: [
 		     { src: 'plugin/notes/notes.js', async: true },
 		     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }

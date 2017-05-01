@@ -15,5 +15,5 @@ func main() {
 			unos++
 		} 
 	}	
-	fmt.Println("Unos ,", unos,", ", time.Since(start).Seconds())
+	fmt.Println("Unos, ", unos,", ", time.Since(start).Seconds())
 }

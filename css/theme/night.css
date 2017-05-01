@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-@import url('https://fonts.googleapis.com/css?family=Francois+One|Love+Ya+Like+A+Sister');
+@import url('https://fonts.googleapis.com/css?family=Francois+One|Love+Ya+Like+A+Sister|Share+Tech+Mono');
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
 /*********************************************
  * GLOBAL STYLES
@@ -149,19 +149,19 @@ body {
   margin: 20px auto;
   text-align: left;
   font-size: 0.55em;
-  font-family: monospace;
+  font-family: 'Share Tech Mono', monospace;
   line-height: 1.2em;
   word-wrap: break-word;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
 
 .reveal code {
-  font-family: monospace; }
+  font-family: 'Share Tech Mono',monospace; }
 
 .reveal pre code {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
+  max-height: 800px;
   word-wrap: normal; }
 
 .reveal table {
