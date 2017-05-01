@@ -1,19 +1,19 @@
 section[data-background] h1 { 
-       background-color:rgba(233,233,233,0.7);
+       background-color:rgba(23,23,23,0.7);
        padding: 50px;
        margin: 20px;
        border-radius: 30px
 }
 
 section[data-background] h2 { 
-       background-color:rgba(211,211,211,0.7);
+       background-color:rgba(21,21,21,0.7);
        padding: 30px;
        margin: 15px;
        border-radius: 20px
 }
 
 section[data-background] h3 { 
-       background-color:rgba(23,23,23,0.7);
+       background-color:rgba(11,11,11,0.7);
        padding: 20px;
        margin: 10px;
        border-radius: 15px
