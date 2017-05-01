@@ -17,10 +17,11 @@ type eval_chromosome struct {
 // Check out https://gobyexample.com/command-line-arguments
 var wg sync.WaitGroup 
 func main() {
+	n := 1000
 	start := time.Now()
-	chromosomes := make( chan string, 100 )
-	evaluated := make( chan *eval_chromosome, 100 )
-	for i := 0; i < 100; i ++ {
+	chromosomes := make( chan string, n )
+	evaluated := make( chan *eval_chromosome, n )
+	for i := 0; i < n; i ++ {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
