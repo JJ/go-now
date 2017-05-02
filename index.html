@@ -167,6 +167,51 @@ func main() {
 	  </section>
 	</section>
 
+	<section>
+	  <section><h1>Concurriendo</h1>
+	    <pre><code>type eval_chromosome struct {
+    chromosome string
+    fitness  int
+}
+
+var wg sync.WaitGroup 
+func main() {
+	n := 1000
+	start := time.Now()
+	chromosomes := make( chan string, n )
+	evaluated := make( chan *eval_chromosome, n )
+	for i := 0; i < n; i ++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			this_chromosome := random_chromosome( 10000 )
+			chromosomes <- this_chromosome
+		}() 
+				       </code></pre>
+	  </section>
+	  <section><code><pre>		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			this_chromosome := <- chromosomes
+			this_evaluated := &eval_chromosome{ chromosome: this_chromosome,
+				fitness: CountOnes.Count( this_chromosome ) }
+			evaluated <- this_evaluated
+		}()
+	}
+	wg.Wait()
+	i:= 1
+	close(evaluated)
+	for result := range evaluated {
+		fmt.Printf("%d => %d\n", i, result.fitness )
+		i++
+
+	}
+	fmt.Println("Time ", time.Since(start).Seconds())
+}
+				     </code></pre>
+	  </section>
+	</section>
+
 	<!-- Credits -->
 	<section><h2>Credits</h2>
 
