@@ -218,23 +218,24 @@ func main() {
 }</pre></code>
 
 	    <h2 class='fragment'>Esperando al canal</h2>
-	    <pre><code>var wg sync.WaitGroup </code></pre>
+	    <pre class='fragment'><code>var wg sync.WaitGroup </code></pre>
 
 		  </section>
 		  <section>
 		    <h2>Abriendo el canal</h2>
-		    <pre><code>chromosomes := make( chan string, n )
+		    <pre><code>
+	chromosomes := make( chan string, n )
 	evaluated := make( chan *eval_chromosome, n )
 		    </code></pre>
 
 		    <h2 class='fragment'>Enviando mensajes</h2>
-<pre><code>
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			this_chromosome := random_chromosome( 10000 )
-			chromosomes <- this_chromosome
-		}() 
+<pre class='fragment'><code>
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		this_chromosome := random_chromosome( 10000 )
+		chromosomes <- this_chromosome
+	}() 
 </code></pre>
 		  </section>
 
