@@ -210,8 +210,59 @@ func main() {
 }
 				     </code></pre>
 	  </section>
+
+	  	  <section><h2>Estos tipos nuevos</h2>
+	    <pre><code>type eval_chromosome struct {
+    chromosome string
+    fitness  int
+}</pre></code>
+
+	    <h2 class='fragment'>Esperando al canal</h2>
+	    <pre><code>var wg sync.WaitGroup </code></pre>
+
+		  </section>
+		  <section>
+		    <h2>Abriendo el canal</h2>
+		    <pre><code>chromosomes := make( chan string, n )
+	evaluated := make( chan *eval_chromosome, n )
+		    </code></pre>
+
+		    <h2 class='fragment'>Enviando mensajes</h2>
+<pre><code>
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			this_chromosome := random_chromosome( 10000 )
+			chromosomes <- this_chromosome
+		}() 
+</code></pre>
+		  </section>
+
+		  <section><h1>Y sacando los resultados</h1>
+		    <pre><code>
+	wg.Wait()
+	i:= 1
+	close(evaluated)
+	for result := range evaluated {
+		fmt.Printf("%d => %d\n", i, result.fitness )
+		i++
+	}</code></pre>
+		  </section>
 	</section>
 
+	<section>
+	  <section>
+	    <h1>Go ❤ simplicidad</h1>
+	    <h1 class='fragment'>Go ❤ concurrencia</h1>
+	    <h1 class='fragment'>Go ❤ sistemas</h1>
+	  </section>
+
+	  <section data-background='https://farm5.staticflickr.com/4095/4811867694_66a121253d_b_d.jpg' alt='Go'>
+	    <h1>Aprende</h1>
+	  </section>
+	</section>
+
+	
 	<!-- Credits -->
 	<section><h2>Credits</h2>
 
@@ -239,6 +290,7 @@ func main() {
 			       href='https://www.flickr.com/photos/49889874@N05/5735091026/'>Marc Falardeau</a></li>
 	    <li>Actores con máscaras por <a href=https://www.flickr.com/photos/woolamaloo_gazette/14851872104/'>Byronv2</a></li>
 	    <li>Jugando al volley por <a href='https://www.flickr.com/photos/matthijs/1468751579/'>Matthijs</a></li>
+	    <li>Signo de go por <a href='https://www.flickr.com/photos/planetlight/4811867694/'>planetlight</a></li>
 	  </ul>
 	</section>
       </div>

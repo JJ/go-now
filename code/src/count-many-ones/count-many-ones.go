@@ -13,8 +13,6 @@ type eval_chromosome struct {
     fitness  int
 }
 
-
-// Check out https://gobyexample.com/command-line-arguments
 var wg sync.WaitGroup 
 func main() {
 	n := 1000
